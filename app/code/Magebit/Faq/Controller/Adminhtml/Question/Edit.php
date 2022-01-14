@@ -10,6 +10,7 @@
 
 namespace Magebit\Faq\Controller\Adminhtml\Question;
 
+use Magebit\Faq\Model\Question;
 use Magento\Backend\App\Action;
 use Magento\Framework\Controller\ResultFactory;
 
@@ -21,7 +22,7 @@ class Edit extends Action
     public function execute()
     {
 
-        $model = $this->_objectManager->create(\Magebit\Faq\Model\Question::class);
+        $model = $this->_objectManager->create(Question::class);
 
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
         $resultPage->getConfig()->getTitle()->prepend(__('FAQ Item'));

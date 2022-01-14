@@ -18,5 +18,5 @@ interface QuestionRepositoryInterface
      * @param QuestionInterface $question
      * @param bool $saveOptions
      */
-    public function save(QuestionInterface $question, \Magebit\Faq\Model\Question $questionModel);
+    public function save(QuestionInterface $question);
 }

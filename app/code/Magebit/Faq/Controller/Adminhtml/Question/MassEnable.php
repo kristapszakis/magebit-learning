@@ -17,7 +17,7 @@ use Magento\Backend\App\Action\Context;
 use Magebit\Faq\Model\ResourceModel\Question\CollectionFactory;
 use Magento\Ui\Component\MassAction\Filter;
 
-class MassDisable extends Action
+class MassEnable extends Action
 {
 
     /**
@@ -47,7 +47,7 @@ class MassDisable extends Action
         $itemsUpdated = 0;
 
         foreach ($collection as $item) {
-            $item->setStatus(0);
+            $item->setStatus(1);
             $item->save();
             $itemsUpdated++;
         }

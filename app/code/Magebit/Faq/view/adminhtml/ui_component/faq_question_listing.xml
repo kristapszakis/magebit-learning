@@ -61,32 +61,34 @@
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
                 </item>
             </argument>
-<!--            <action name="enable">-->
-<!--                <argument name="data" xsi:type="array">-->
-<!--                    <item name="config" xsi:type="array">-->
-<!--                        <item name="type" xsi:type="string">enable</item>-->
-<!--                        <item name="label" xsi:type="string" translate="true">Enable</item>-->
-<!--                        <item name="url" xsi:type="url" path="mageplaza_helloworld/post/massDelete"/>-->
-<!--                        <item name="confirm" xsi:type="array">-->
-<!--                            <item name="title" xsi:type="string" translate="true">Delete Post</item>-->
-<!--                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>-->
-<!--                        </item>-->
-<!--                    </item>-->
-<!--                </argument>-->
-<!--            </action>-->
-<!--            <action name="disable">-->
-<!--                <argument name="data" xsi:type="array">-->
-<!--                    <item name="config" xsi:type="array">-->
-<!--                        <item name="type" xsi:type="string">disable</item>-->
-<!--                        <item name="label" xsi:type="string" translate="true">Disable</item>-->
-<!--                        <item name="url" xsi:type="url" path="mageplaza_helloworld/post/massDelete"/>-->
-<!--                        <item name="confirm" xsi:type="array">-->
-<!--                            <item name="title" xsi:type="string" translate="true">Delete Post</item>-->
-<!--                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>-->
-<!--                        </item>-->
-<!--                    </item>-->
-<!--                </argument>-->
-<!--            </action>-->
+            <action name="enable">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">enable</item>
+                        <item name="label" xsi:type="string" translate="true">Enable</item>
+                        <item name="url" xsi:type="url" path="faq/question/massEnable"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Enable FAQ Item</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to enable selected items?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+
+            <action name="disable">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">disable</item>
+                        <item name="label" xsi:type="string" translate="true">Disable</item>
+                        <item name="url" xsi:type="url" path="faq/question/massDisable"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Disable FAQ Item</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you wan't to disable selected items?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+
             <action name="delete">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
@@ -100,6 +102,7 @@
                     </item>
                 </argument>
             </action>
+
 <!--            <action name="edit">-->
 <!--                <argument name="data" xsi:type="array">-->
 <!--                    <item name="config" xsi:type="array">-->

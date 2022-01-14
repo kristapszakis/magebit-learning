@@ -25,32 +25,32 @@ class MassDelete extends Action implements HttpPostActionInterface
     /**
      * @var Filter
      */
-    protected $_filter;
+    protected $filter;
 
     /**
      * @var CollectionFactory
      */
-    protected $_collectionFactory;
+    protected $collectionFactory;
 
     public function __construct(
         Context $context,
         Filter $filter,
         CollectionFactory $collectionFactory
     ) {
-        $this->_filter = $filter;
-        $this->_collectionFactory = $collectionFactory;
+        $this->filter = $filter;
+        $this->collectionFactory = $collectionFactory;
         parent::__construct($context);
     }
 
     public function execute()
     {
-        $collection = $this->_filter->getCollection($this->_collectionFactory->create());
+        $collection = $this->filter->getCollection($this->collectionFactory->create());
         $resultRedirect = $this->resultRedirectFactory->create();
         $itemsDeleted = 0;
 
         foreach ($collection->getItems() as $record) {
 //            try {
-//                $this->_collectionFactory->delete($record);
+//                $this->collectionFactory->delete($record);
 //                $itemsDeleted++;
 //            } catch (LocalizedException $exception) {
 //                $this->messageManager->addErrorMessage(__($exception));
