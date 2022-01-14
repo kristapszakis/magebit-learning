@@ -1,0 +1,48 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magebit_faq" resource="default" engine="innodb" comment="FAQ items and answers">
+        <column xsi:type="int"
+                name="id"
+                unsigned="false"
+                nullable="false"
+                identity="true"
+                comment="Question ID"
+        />
+        <column xsi:type="varchar"
+                name="question"
+                nullable="false"
+                length="255"
+        />
+        <column xsi:type="mediumtext"
+                name="answer"
+                nullable="false"
+                comment="Answer to FAQ question"
+        />
+        <column xsi:type="smallint"
+                name="status"
+                nullable="false"
+                default="0"
+        />
+        <column xsi:type="int"
+                name="position"
+                nullable="false"
+                default="0"
+        />
+        <column xsi:type="timestamp"
+                name="updated_at"
+                on_update="true"
+                nullable="false"
+                default="CURRENT_TIMESTAMP"
+        />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="MAGEBIT_FAQ_ID">
+            <column name="id"/>
+        </constraint>
+        <index referenceId="MAGEBIT_FAQ_QUESTION_ANSWER" indexType="fulltext">
+            <column name="question" />
+            <column name="answer" />
+        </index>
+    </table>
+</schema>
