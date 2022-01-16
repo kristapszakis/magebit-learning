@@ -15,15 +15,13 @@ use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 class Collection extends AbstractCollection
 {
     /**
-     * @var string
-     */
-    protected $_idFieldName = 'id';
-
-    /**
      * Define resource model.
      */
     protected function _construct()
     {
-        $this->_init('Magebit\Faq\Model\Question', 'Magebit\Faq\Model\ResourceModel\Question');
+        $this->_init(
+            'Magebit\Faq\Model\Question',
+            'Magebit\Faq\Model\ResourceModel\Question'
+        );
     }
 }

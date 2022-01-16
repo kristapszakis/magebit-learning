@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace Magebit\Faq\Controller\Adminhtml\Question;
 
-use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magebit\Faq\Model\Question;
 use Magento\Backend\App\Action;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 
-class Delete  extends Action implements HttpPostActionInterface
+class Delete extends Action implements HttpPostActionInterface
 {
     /**
      * Delete action
@@ -28,7 +28,6 @@ class Delete  extends Action implements HttpPostActionInterface
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
 
-        // check if we know what should be deleted
         $id = $this->getRequest()->getParam('id');
 
         if ($id) {
@@ -38,19 +37,16 @@ class Delete  extends Action implements HttpPostActionInterface
                 $model->load($id);
                 $model->delete();
 
-                // display success message
                 $this->messageManager->addSuccessMessage(__('You deleted the FAQ item.'));
-                // go to grid
+
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {
-                // display error message
                 $this->messageManager->addErrorMessage($e->getMessage());
-                // go back to edit form
-                return $resultRedirect->setPath('*/*/edit', ['block_id' => $id]);
+
+                return $resultRedirect->setPath('*/*/');
             }
         }
 
-        // display error message
         $this->messageManager->addErrorMessage(__('We can\'t find a FAQ item to delete.'));
 
         return $resultRedirect->setPath('*/*/');
