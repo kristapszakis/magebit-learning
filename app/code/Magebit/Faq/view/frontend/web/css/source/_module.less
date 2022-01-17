@@ -1,0 +1,28 @@
+
+& when (@media-common = true) {
+    .faq-index-index {
+        .faq {
+            &-detail {
+                background-color: @color-gray-darken1;
+            }
+
+            &-summary {
+                background-color: @color-gray-middle2;
+                font-size: 24px;
+                text-transform: uppercase;
+                padding: 10px;
+                cursor: pointer;
+
+                &.active + .faq-content {
+                    display: block;
+                }
+            }
+
+            &-content {
+                padding: 10px;
+                display: none;
+            }
+        }
+    }
+}
+

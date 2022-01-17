@@ -17,18 +17,18 @@ use Magento\Framework\Controller\ResultFactory;
 class Edit extends Action
 {
     /**
-     * @return \Magento\Backend\Model\View\Result\Page
+     * @return \Magento\Framework\Controller\ResultInterface
      */
     public function execute()
     {
-
+        $id = (int) $this->getRequest()->getParam('id');
         $model = $this->_objectManager->create(Question::class);
 
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
         $resultPage->getConfig()->getTitle()->prepend(__('FAQ Item'));
 
         $resultPage->getConfig()->getTitle()
-            ->prepend($model->getId() ? 'Edit ' . $model->getTitle() : __('New FAQ Item'));
+            ->prepend($id ? 'Edit FAQ Item' . $model->getTitle() : __('New FAQ Item'));
 
         return $resultPage;
     }

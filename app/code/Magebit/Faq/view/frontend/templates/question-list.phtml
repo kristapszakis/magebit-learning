@@ -1,0 +1,27 @@
+<?php
+/** @var \Magebit\Faq\Block\QuestionList $block */
+$_faqItems = $block->getCollection();
+
+if ($_faqItems && $_faqItems->getSize()): ?>
+    <div id="faq-list" class="faq-details" data-mage-init='{
+        "accordion":{
+            "active": [0],
+            "collapsible": true,
+            "openedState": "active",
+            "multipleCollapsible": true
+        }}'>
+    <?php foreach ($_faqItems as $_faqItem): ?>
+
+        <div data-role="collapsible" class="faq-summary">
+            <div data-role="trigger">
+                <span><?= $block->escapeHtml($_faqItem->getQuestion()); ?></span>
+            </div>
+        </div>
+        <div data-role="content" class="faq-content">
+            <?= $block->escapeHtml($_faqItem->getAnswer()); ?>
+        </div>
+    <?php endforeach; ?>
+    </div>
+<?php else: ?>
+    <h2><?= __('There is no FAQ items to show'); ?></h2>
+<?php endif; ?>

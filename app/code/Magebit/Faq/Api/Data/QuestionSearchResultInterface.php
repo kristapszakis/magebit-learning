@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Magebit\Faq\Api\Data;
 
-//use Magento\Framework\Api\Search\SearchResultInterface;
 use Magento\Framework\Api\SearchResultsInterface;
 
 interface QuestionSearchResultInterface extends SearchResultInterface
