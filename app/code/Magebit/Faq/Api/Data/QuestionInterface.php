@@ -20,58 +20,59 @@ interface QuestionInterface
     const POSITION      = 'position';
     const UPDATED_AT    = 'updated_at';
 
-
     /**
      * @return int
      */
-    public function getId();
+    public function getId(): ?int;
 
     /**
      * @return string
      */
-    public function getQuestion();
+    public function getQuestion(): string;
 
     /**
      * @param $question
-     * @return mixed
+     * @return QuestionInterface
      */
-    public function setQuestion($question);
+    public function setQuestion($question): QuestionInterface;
 
     /**
      * @return string
      */
-    public function getAnswer();
+    public function getAnswer(): string;
 
     /**
      * @param $answer
-     * @return string
+     * @return QuestionInterface
      */
-    public function setAnswer($answer);
+    public function setAnswer($answer): QuestionInterface;
 
     /**
      * @return int
      */
-    public function getStatus();
+    public function getStatus(): int;
 
     /**
      * @param $status
-     * @return string
+     * @return QuestionInterface
      */
-    public function setStatus($status);
+    public function setStatus($status): QuestionInterface;
 
     /**
      * @return int
      */
-    public function getPosition();
+    public function getPosition(): int;
 
     /**
      * @param $position
-     * @return int
+     * @return QuestionInterface
      */
-    public function setPosition($position);
+    public function setPosition($position): QuestionInterface;
 
-
-    public function getUpdateAt();
+    /**
+     * @return string
+     */
+    public function getUpdateAt(): string;
 }
 
 

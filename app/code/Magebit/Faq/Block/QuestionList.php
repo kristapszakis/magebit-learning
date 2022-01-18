@@ -59,13 +59,10 @@ class QuestionList extends Template
         $this->questionCollectionFactory = $questionCollectionFactory;
     }
 
-    public function getCollection()
+    public function getCollection(): \Magebit\Faq\Model\ResourceModel\Question\Collection
     {
-
-        $questionCollection = $this->questionCollectionFactory->create()
+        return $this->questionCollectionFactory->create()
             ->addFieldToFilter('status', 1)
             ->setOrder('position', 'ASC');
-
-        return $questionCollection;
     }
 }

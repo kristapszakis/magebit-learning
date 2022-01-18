@@ -19,7 +19,6 @@ use Magebit\Faq\Api\QuestionRepositoryInterface;
 use Magebit\Faq\Model\QuestionRepository;
 use Magento\Backend\App\Action\Context;
 
-
 class InlineEdit extends Action
 {
     /**
@@ -33,8 +32,6 @@ class InlineEdit extends Action
 
     protected $jsonFactory;
 
-    protected $questionModel;
-
     public function __construct(
         Context $context,
         QuestionRepository $questionRepositoryInterface,
@@ -45,7 +42,10 @@ class InlineEdit extends Action
         $this->jsonFactory = $jsonFactory;
     }
 
-    public function execute()
+    /**
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
+    public function execute(): jsonFactory
     {
         /** @var \Magento\Framework\Controller\Result\Json $resultJson */
         $resultJson = $this->jsonFactory->create();

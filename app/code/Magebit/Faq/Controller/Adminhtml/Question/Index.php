@@ -34,8 +34,7 @@ class Index extends Action implements HttpGetActionInterface
     public function __construct(
         Context     $context,
         PageFactory $resultPageFactory
-    )
-    {
+    ) {
         parent::__construct($context);
 
         $this->resultPageFactory = $resultPageFactory;
@@ -46,7 +45,7 @@ class Index extends Action implements HttpGetActionInterface
      *
      * @return Page
      */
-    public function execute()
+    public function execute(): Page
     {
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu(static::MENU_ID);

@@ -19,7 +19,6 @@ use Magento\Ui\Component\MassAction\Filter;
 
 class MassDisable extends Action
 {
-
     /**
      * @var Filter
      */
@@ -28,13 +27,11 @@ class MassDisable extends Action
     /** @var CollectionFactory */
     protected $collectionFactory;
 
-
     public function __construct(
         Context $context,
         Filter $filter,
         CollectionFactory $collectionFactory
-    )
-    {
+    ) {
         $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
         parent::__construct($context);

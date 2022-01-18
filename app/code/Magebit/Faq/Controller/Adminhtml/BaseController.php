@@ -13,9 +13,9 @@ declare(strict_types=1);
 namespace Magebit\Faq\Controller\Adminhtml;
 
 use Magento\Backend\App\Action;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 
-
-abstract class BaseController extends Action
+abstract class BaseController extends Action implements HttpPostActionInterface
 {
     public function __construct(
         \Magento\Backend\App\Action\Context $context

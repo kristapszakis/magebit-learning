@@ -26,27 +26,6 @@
             </item>
 
             <item name="save" xsi:type="string">Magebit\Faq\Ui\Component\Form\Button\SaveButton</item>
-
-
-<!--            <item name="save" xsi:type="array">-->
-<!--                <item name="name" xsi:type="string">save</item>-->
-<!--                <item name="label" xsi:type="string" translate="true">Save</item>-->
-<!--                <item name="class" xsi:type="string">primary</item>-->
-<!--                <item name="url" xsi:type="string">*/*/save</item>-->
-<!--                <item name="save" xsi:type="array">-->
-
-<!--                </item>-->
-<!--            </item>-->
-
-<!--            -->
-
-<!--            <item name="save" xsi:type="string">Magebit\Faq\Block\Adminhtml\Question\Edit\SaveButton</item>-->
-
-
-<!--            <item name="save2" xsi:type="string">Magento\Cms\Block\Adminhtml\Page\Edit\SaveButton</item>-->
-<!--            <item name="back2" xsi:type="string">Magento\Cms\Block\Adminhtml\Page\Edit\SaveButton</item>-->
-<!--            <item name="delete" xsi:type="string">Magento\Cms\Block\Adminhtml\Page\Edit\DeleteButton</item>-->
-<!--            <item name="reset" xsi:type="string">Magento\Cms\Block\Adminhtml\Page\Edit\BackButton</item>-->
         </item>
     </argument>
 
@@ -110,6 +89,7 @@
                 </validation>
             </settings>
         </field>
+
         <field name="answer" formElement="input">
             <settings>
                 <dataType>text</dataType>

@@ -7,9 +7,10 @@ use Magento\Ui\DataProvider\AbstractDataProvider;
 
 class DataProvider extends AbstractDataProvider
 {
-
+    /**
+     * @var
+     */
     protected $loadedData;
-
 
     /**
      * @param string $name
@@ -36,7 +37,7 @@ class DataProvider extends AbstractDataProvider
      *
      * @return array
      */
-    public function getData()
+    public function getData(): ?array
     {
         if (isset($this->loadedData)) {
             return $this->loadedData;

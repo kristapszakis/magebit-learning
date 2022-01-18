@@ -79,3 +79,5 @@ atlassian*
 /phpserver
 /update
 /var
+package-lock.json
+libinput-gestures/

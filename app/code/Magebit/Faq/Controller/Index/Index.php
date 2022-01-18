@@ -14,6 +14,9 @@ namespace Magebit\Faq\Controller\Index;
 
 class Index extends \Magento\Framework\App\Action\Action
 {
+    /**
+     * @var \Magento\Framework\View\Result\PageFactory
+     */
     protected $pageFactory;
 
     public function __construct(

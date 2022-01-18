@@ -12,15 +12,11 @@ declare(strict_types=1);
 
 namespace Magebit\Faq\Controller\Adminhtml\Question;
 
-use Magento\Backend\App\Action;
+use Magebit\Faq\Controller\Adminhtml\BaseController;
 use Magento\Backend\App\Action\Context;
 use Magebit\Faq\Model\QuestionFactory;
-use Magebit\Faq\Mode\Question;
 
-use Magento\Framework\App\Action\HttpPostActionInterface;
-
-
-class Save extends Action implements HttpPostActionInterface
+class Save extends BaseController
 {
     /**
      * @var QuestionFactory

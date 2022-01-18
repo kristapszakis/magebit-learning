@@ -7,7 +7,7 @@ declare(strict_types=1);
  * @category     Magebit
  * @package      Magebit_Faq
  * @author       Rihards Ratke
- * @copyright    Copyright (c) 2020 Magebit, Ltd.(https://www.magebit.com/)
+ * @copyright    Copyright (c) 2022 Magebit, Ltd.(https://www.magebit.com/)
  */
 
 namespace Magebit\Faq\Ui\Component\Form\Button;
@@ -46,10 +46,10 @@ abstract class GenericButton
     /**
      * @return int|null
      */
-    public function getId()
+    public function getId(): ?int
     {
         try {
-            return $this->questionRepository->get(
+            return $this->questionRepository->getById(
                 $this->context->getRequest()->getParam('id')
             )->getId();
         } catch (NoSuchEntityException $e) {
@@ -63,7 +63,7 @@ abstract class GenericButton
      * @param array $params
      * @return string
      */
-    public function getUrl($route = '', $params = [])
+    public function getUrl(string $route = '', array $params = []): string
     {
         return $this->context->getUrlBuilder()->getUrl($route, $params);
     }

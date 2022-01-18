@@ -6,13 +6,12 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 class Status implements OptionSourceInterface
 {
-
     /**
      * Get options
      *
      * @return array
      */
-    public function toOptionArray()
+    public function toOptionArray(): array
     {
         $options[] = ['label' => '', 'value' => ''];
         $availableOptions = $this->getOptionArray();
@@ -27,7 +26,7 @@ class Status implements OptionSourceInterface
         return $options;
     }
 
-    public static function getOptionArray()
+    public static function getOptionArray(): array
     {
         return [1 => __('Enabled'), 0 => __('Disabled')];
     }

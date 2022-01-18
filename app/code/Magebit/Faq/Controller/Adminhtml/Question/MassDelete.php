@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Magebit\Faq\Controller\Adminhtml\Question;
 
-
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\App\Action\HttpPostActionInterface;
@@ -49,13 +48,6 @@ class MassDelete extends Action implements HttpPostActionInterface
         $itemsDeleted = 0;
 
         foreach ($collection->getItems() as $record) {
-//            try {
-//                $this->collectionFactory->delete($record);
-//                $itemsDeleted++;
-//            } catch (LocalizedException $exception) {
-//                $this->messageManager->addErrorMessage(__($exception));
-//            }
-//
             $record->delete();
             $itemsDeleted++;
         }

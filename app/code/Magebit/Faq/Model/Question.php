@@ -10,14 +10,14 @@
 
 namespace Magebit\Faq\Model;
 
-use Magento\Framework\Model\AbstractModel;
 use Magebit\Faq\Api\Data\QuestionInterface;
+use Magento\Framework\Model\AbstractModel;
 
-class Question extends AbstractModel implements QuestionInterface
+class Question extends AbstractModel implements \Magebit\Faq\Api\Data\QuestionInterface
 {
     const CACHE_TAG = 'magebit_faq_list';
 
-    public function getIdentities()
+    public function getIdentities(): array
     {
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
@@ -25,7 +25,7 @@ class Question extends AbstractModel implements QuestionInterface
     /**
      * @inheritDoc
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->getData(self::ID);
     }
@@ -33,63 +33,72 @@ class Question extends AbstractModel implements QuestionInterface
     /**
      * @inheritDoc
      */
-    public function getQuestion() {
+    public function getQuestion(): string
+    {
         return $this->getData(self::QUESTION);
     }
 
     /**
      * @inheritDoc
      */
-    public function setQuestion($question) {
+    public function setQuestion($question): QuestionInterface
+    {
         return $this->setData(self::QUESTION, $question);
     }
 
     /**
      * @inheritDoc
      */
-    public function getAnswer() {
+    public function getAnswer(): string
+    {
         return $this->getData(self::ANSWER);
     }
 
     /**
      * @inheritDoc
      */
-    public function setAnswer($answer) {
+    public function setAnswer($answer): QuestionInterface
+    {
         return $this->setData(self::ANSWER, $answer);
     }
 
     /**
      * @inheritDoc
      */
-    public function getStatus() {
+    public function getStatus(): int
+    {
         return $this->getData(self::STATUS);
     }
 
     /**
      * @inheritDoc
      */
-    public function setStatus($status) {
+    public function setStatus($status): QuestionInterface
+    {
         return $this->setData(self::STATUS, $status);
     }
 
     /**
      * @inheritDoc
      */
-    public function getPosition() {
+    public function getPosition(): int
+    {
         return $this->getData(self::POSITION);
     }
 
     /**
      * @inheritDoc
      */
-    public function setPosition($position) {
+    public function setPosition($position): QuestionInterface
+    {
         return $this->setData(self::POSITION, $position);
     }
 
     /**
      * @inheritDoc
      */
-    public function getUpdateAt() {
+    public function getUpdateAt(): string
+    {
         return $this->getData(self::UPDATED_AT);
     }
 

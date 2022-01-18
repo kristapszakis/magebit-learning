@@ -10,32 +10,18 @@
 
 namespace Magebit\Faq\Model;
 
-//use Magebit\Faq\Api\Data\QuestionInterface;
-//use Magebit\Faq\Api\Data;
-//use Magebit\Faq\Api\QuestionRepositoryInterface;
-//
-//use Magebit\Faq\Model\ResourceModel\Question as QuestionResource;
-//use Magebit\Faq\Model\ResourceModel\Question\Collection as QuestionCollectionFactory;
-//
-//use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
-//
-//use Magento\Framework\Exception\CouldNotDeleteException;
-//use Magento\Framework\Exception\NoSuchEntityException;
-
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
-use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magebit\Faq\Api\Data\QuestionInterface;
 use Magebit\Faq\Api\Data\QuestionSearchResultInterfaceFactory;
 use Magebit\Faq\Api\QuestionRepositoryInterface;
 use Magebit\Faq\Model\ResourceModel\Question;
-use Magebit\Faq\Model\ResourceModel\Question\CollectionFactory;
+use Magebit\Faq\Api\Data\QuestionSearchResultInterface;
 
 
 class QuestionRepository implements QuestionRepositoryInterface
 {
-
     /**
      * @var QuestionFactory
      */
@@ -48,7 +34,7 @@ class QuestionRepository implements QuestionRepositoryInterface
     private $questionResource;
 
     /**
-     * @var QuestionCollectionFactory
+     * @var \Magebit\Faq\Model\ResourceModel\Question\Collection CollectionFactory
      */
     private $questionCollectionFactory;
 
@@ -65,7 +51,7 @@ class QuestionRepository implements QuestionRepositoryInterface
     public function __construct(
         QuestionFactory $questionFactory,
         Question $questionResource,
-        CollectionFactory $questionCollectionFactory,
+        \Magebit\Faq\Model\ResourceModel\Question\Collection $questionCollectionFactory,
         QuestionSearchResultInterfaceFactory $questionSearchResultsFactory,
         CollectionProcessorInterface $collectionProcessor
     ) {
@@ -81,7 +67,7 @@ class QuestionRepository implements QuestionRepositoryInterface
      * @return \Magebit\Faq\Api\Data\QuestionInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getById(int $id)
+    public function getById(int $id): QuestionInterface
     {
         $question = $this->questionFactory->create();
 
@@ -99,7 +85,7 @@ class QuestionRepository implements QuestionRepositoryInterface
      * @return \Magebit\Faq\Api\Data\QuestionInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function save(QuestionInterface $question)
+    public function save(QuestionInterface $question): QuestionInterface
     {
         $this->questionResource->save($question);
 
@@ -111,7 +97,7 @@ class QuestionRepository implements QuestionRepositoryInterface
      * @return bool true on success
      * @throws \Magento\Framework\Exception\CouldNotDeleteException
      */
-    public function delete(QuestionInterface $question)
+    public function delete(QuestionInterface $question): bool
     {
         try {
             $this->questionResource->delete($question);
@@ -129,7 +115,7 @@ class QuestionRepository implements QuestionRepositoryInterface
      * @return \Magebit\Faq\Api\Data\QuestionSearchResultInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria)
+    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria): QuestionSearchResultInterface
     {
         $collection = $this->questionCollectionFactory->create();
 
@@ -141,10 +127,5 @@ class QuestionRepository implements QuestionRepositoryInterface
         $searchResults->setTotalCount($collection->getSize());
 
         return $searchResults;
-    }
-
-    public function deleteById($id)
-    {
-        // TODO: Implement deleteById() method.
     }
 }

@@ -12,19 +12,16 @@ declare(strict_types=1);
 
 namespace Magebit\Faq\Api\Data;
 
-use Magento\Framework\Api\SearchResultsInterface;
-
-interface QuestionSearchResultInterface extends SearchResultInterface
+interface QuestionSearchResultInterface extends \Magento\Framework\Api\SearchResultsInterface
 {
-
     /**
      * @return \Magebit\Faq\Api\Data\QuestionInterface
      */
-    public function getItems();
+    public function getItems(): QuestionInterface;
 
     /**
      * @param \Magebit\Faq\Api\Data\QuestionInterface[] $items
      * @return $this
      */
-    public function setItems(array $items = null);
+    public function setItems(array $items = null): QuestionSearchResultInterface;
 }

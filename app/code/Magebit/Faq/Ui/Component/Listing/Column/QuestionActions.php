@@ -15,11 +15,6 @@ class QuestionActions extends Column
     const URL_PATH_EDIT = 'faq/question/edit';
     const URL_PATH_DELETE = 'faq/question/delete';
 
-    /**
-     * @var string
-     */
-    private $_editUrl;
-
     /** @var UrlInterface */
     protected $urlBuilder;
 
@@ -40,12 +35,10 @@ class QuestionActions extends Column
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
-    public function prepareDataSource(array $dataSource)
+    public function prepareDataSource (array $dataSource): array
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {
-                $name = $this->getData('name');
-
                 $question = $this->getEscaper()->escapeHtmlAttr($item['question']);
 
                 $item[$this->getData('name')] = [
@@ -71,32 +64,6 @@ class QuestionActions extends Column
                         'post' => true,
                     ]
                 ];
-
-               // if (isset($item['id'])) {
-               //     $item[$name]['edit'] = [
-
-                //    ];
-
-                    /**
-
-                     *'delete' => [
-                    'href' => $this->urlBuilder->getUrl(
-                    static::URL_PATH_DELETE,
-                    [
-                    'block_id' => $item['block_id'],
-                    ]
-                    ),
-                    'label' => __('Delete'),
-                    'confirm' => [
-                    'title' => __('Delete %1', $title),
-                    'message' => __('Are you sure you want to delete a %1 record?', $title),
-                    ],
-                    'post' => true,
-                    ]
-
-
-                     */
-               // }
             }
         }
 
@@ -109,11 +76,12 @@ class QuestionActions extends Column
      * @return Escaper
      * @deprecated 101.0.7
      */
-    private function getEscaper()
+    private function getEscaper() : Escaper
     {
         if (!$this->escaper) {
             $this->escaper = ObjectManager::getInstance()->get(Escaper::class);
         }
+
         return $this->escaper;
     }
 }

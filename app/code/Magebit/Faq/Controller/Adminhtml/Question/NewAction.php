@@ -12,22 +12,10 @@ namespace Magebit\Faq\Controller\Adminhtml\Question;
 
 class NewAction extends \Magento\Backend\App\Action
 {
-
     public function execute()
     {
+        $resultRedirect = $this->resultRedirectFactory->create();
 
-        $this->_view->loadLayout();
-        $this->_view->renderLayout();
-
-        $faqData = $this->getRequest()->getParam('faq');
-
-        if(is_array($faqData)) {
-            $contact = $this->_objectManager->create(Contact::class);
-
-            $contact->setData($faqData)->save();
-            $resultRedirect = $this->resultRedirectFactory->create();
-
-            return $resultRedirect->setPath('*/*/index');
-        }
+        return $resultRedirect->setPath('*/*/index');
     }
 }

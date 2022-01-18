@@ -10,9 +10,9 @@
 
 namespace Magebit\Faq\Api;
 
-/**
- *
- */
+use Magebit\Faq\Api\Data\QuestionInterface;
+use Magebit\Faq\Api\Data\QuestionSearchResultInterface;
+
 interface QuestionRepositoryInterface
 {
     /**
@@ -20,34 +20,26 @@ interface QuestionRepositoryInterface
      * @return \Magebit\Faq\Api\Data\QuestionInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getById(int $id);
+    public function getById(int $id): QuestionInterface;
 
     /**
      * @param \Magebit\Faq\Api\Data\QuestionInterface $question
      * @return \Magebit\Faq\Api\Data\QuestionInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function save(\Magebit\Faq\Api\Data\QuestionInterface $question);
+    public function save(QuestionInterface $question): QuestionInterface;
 
     /**
      * @param \Magebit\Faq\Api\Data\QuestionInterface $question
      * @return bool true on success
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function delete(\Magebit\Faq\Api\Data\QuestionInterface $question);
+    public function delete(QuestionInterface $question): bool;
 
     /**
      * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
      * @return \Magebit\Faq\Api\Data\QuestionSearchResultInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
-
-
-    /**
-     * @param $id
-     * @return mixed
-     */
-    public function deleteById($id);
-
+    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria): QuestionSearchResultInterface;
 }
